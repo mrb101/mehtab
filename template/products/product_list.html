@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="row">
+    {% include "products/_category_list.html" %}
+    <div class="col-xs-8">
+        <p class="lead">Products</p>
+        <div class="row">
+            {% for product in products %}
+                <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                    <a class="thumbnail" href="{{product.get_absolute_url}}">
+                        <img class="img-responsive" src="{% if product.image_thumbnail %}{{product.image_thumbnail.url}}{% else %}#{% endif %}" alt="{{product.slug}}">
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

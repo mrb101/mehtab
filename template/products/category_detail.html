@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="row">
+    {% include "products/_category_list.html" %}
+    <div class="col-xs-8">
+        <p class="lead">Category</p>
+        <div class="col-xs-12">
+            <div class="panel panel-default">
+            <div class="panel-heading">Details</div>
+            <div class="panel-body">
+                <h4>Name:</h4>
+                <p>{{category.name}}</p>
+                <h4>Slug:</h4>
+                <p>{{category.slug}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
