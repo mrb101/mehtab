@@ -2,6 +2,7 @@ from django.shortcuts import render
 
 from django.views.generic import TemplateView, CreateView, DetailView, UpdateView
 from django.views.generic.list import ListView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 from models import Category, Product
@@ -25,11 +26,13 @@ class CategoryList(ListView):
     context_object_name = 'categories'
 
 
-class CategoryCreate(CreateView):
+class CategoryCreate(LoginRequiredMixin, CreateView):
     model = Category
     fields = ['name']
     template_name = 'products/category_create.html'
     success_url = '/categories/'
+    login_url = '/admin/'
+    redirect_field_name = 'next'
 
 
 class CategoryDetail(DetailView):
@@ -45,7 +48,7 @@ class CategoryDetail(DetailView):
         return context
 
 
-class CategoryUpdate(UpdateView):
+class CategoryUpdate(LoginRequiredMixin, UpdateView):
     model = Category
     fields = ['name']
     template_name = 'products/category_update.html'
@@ -75,14 +78,14 @@ class ProductDetail(DetailView):
         return context
 
 
-class ProductCreate(CreateView):
+class ProductCreate(LoginRequiredMixin, CreateView):
     model = Product
     fields = ['name', 'description', 'price', 'stock', 'image', 'category']
     template_name = 'products/product_create.html'
     success_url = '/products/'
 
 
-class ProductUpdate(UpdateView):
+class ProductUpdate(LoginRequiredMixin, UpdateView):
     model = Product
     fields = ['name', 'description', 'price', 'stock', 'image', 'category']
     template_name = 'products/product_update.html'
