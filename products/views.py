@@ -11,6 +11,14 @@ class IndexTemplate(TemplateView):
     template_name = 'products/index.html'
 
 
+class AboutTemplate(TemplateView):
+    template_name = 'products/about.html'
+
+
+class ContactTemplate(TemplateView):
+    template_name = 'products/contact.html'
+
+
 class CategoryList(ListView):
     model = Category
     template_name = 'products/category_list.html'

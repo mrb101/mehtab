@@ -24,6 +24,7 @@ from products import views as productsviews
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', productsviews.IndexTemplate.as_view(), name='index'),
+    url(r'^contact/$', productsviews.ContactTemplate.as_view(), name='contact'),
     url(r'^categories/$', productsviews.CategoryList.as_view(), name='category_list'),
     url(r'^categories/new', productsviews.CategoryCreate.as_view(), name='category_create'),
     url(r'^categories/(?P<slug>[-\w]+)/show$', productsviews.CategoryDetail.as_view(), name='category_detail'),
