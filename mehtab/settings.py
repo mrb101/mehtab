@@ -29,6 +29,10 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+# Authentication Variables
+LOGIN_REDIRECT_URL = '/'
+
+
 # Application definition
 
 INSTALLED_APPS = [

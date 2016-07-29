@@ -54,9 +54,15 @@
                     <li>
                         <a href="/contact">Contact</a>
                     </li>
+                </ul>
+                <ul class="nav navbar-nav pull-right">
                     {% if user.is_authenticated %}
                     <li>
-                        <a href="/logout" class="navbar-nav pull-right">Logout</a>
+                        <a href="/logout">Logout</a>
+                    </li>
+                    {% else %}
+                    <li>
+                        <a href="/login">Login</a>
                     </li>
                     {% endif %}
                 </ul>
