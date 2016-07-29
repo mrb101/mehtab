@@ -31,7 +31,7 @@ class CategoryCreate(LoginRequiredMixin, CreateView):
     fields = ['name']
     template_name = 'products/category_create.html'
     success_url = '/categories/'
-    login_url = '/admin/'
+    login_url = '/login/'
     redirect_field_name = 'next'
 
 
